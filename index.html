@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Formulário com validação</title>
+</head>
+
+<body>
+
+  <form id="meuFormulario">
+    <label for="campoA">Campo A:</label>
+    <input type="number" id="campoA" name="campoA" required>
+
+    <label for="campoB">Campo B:</label>
+    <input type="number" id="campoB" name="campoB" required>
+
+    <button type="button" onclick="validarFormulario()">Submeter</button>
+  </form>
+
+  <div id="mensagem" class="mensagem"></div>
+
+  <script>
+    function validarFormulario() {
+      // Obtendo valores dos campos A e B
+      var campoA = document.getElementById("campoA").value;
+      var campoB = document.getElementById("campoB").value;
+
+      // Convertendo os valores para números
+      campoA = parseFloat(campoA);
+      campoB = parseFloat(campoB);
+
+      // Verificando a condição de validação
+      var formularioValido = campoB > campoA;
+
+      // Exibindo mensagem
+      var mensagemElemento = document.getElementById("mensagem");
+      mensagemElemento.textContent = formularioValido ? "Formulário válido!" : "Formulário inválido!";
+      mensagemElemento.className = formularioValido ? "mensagem-positiva" : "mensagem-negativa";
+    }
+  </script>
+
+
+</body>
+
+</html>
